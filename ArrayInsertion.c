@@ -77,6 +77,18 @@ int deleteElementAtEnd(int arr[], int *n)
     return 0;
 }
 
+int deleteElementAtBeggining(int arr[], int *n)
+{
+    int i;
+
+    for(i = 0; i < *n; i ++){
+        arr[i] = arr[i+1];
+    }
+
+    (*n)--;
+    return 0;
+}
+
 int deleteElementAtIndex(int arr[], int idx, int *n)
 {
 
@@ -127,6 +139,12 @@ int main()
     printf("\n");
 
     deleteElementAtEnd(arr, &n);
+    printf("Array after deletion of element at end: ");
+    travesedArray(arr, &n);
+    printf("\n");
+
+    deleteElementAtBeggining(arr, &n);
+    printf("Array after deletion of element at beggining: ");
     travesedArray(arr, &n);
 
     return 0;
