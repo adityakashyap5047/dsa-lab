@@ -59,6 +59,14 @@ int insertAtIndex(int arr[], int pos, int *n, int element, int max) {
     return 0;
 }
 
+int deleteElementAtEnd(int arr[], int *n){
+
+    (*n)--;
+
+    return 0;
+
+}
+
 int deleteElementAtIndex(int arr[], int idx, int *n){
 
     int i;
@@ -99,11 +107,14 @@ int main() {
     travesedArray(arr, &n);
     printf("\n");
 
-    idx = 2;
+    idx = 7;
     deleteElementAtIndex(arr, idx, &n);
     printf("Array after deletion of element at index %d: ", idx);
     travesedArray(arr, &n);
     printf("\n");
+
+    deleteElementAtEnd(arr, &n);
+    travesedArray(arr, &n);
 
     return 0;
 }
