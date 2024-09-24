@@ -132,7 +132,7 @@ int main()
     travesedArray(arr, &n);
     printf("\n");
 
-    idx = 7;
+    idx = 5;
     deleteElementAtIndex(arr, idx, &n);
     printf("Array after deletion of element at index %d: ", idx);
     travesedArray(arr, &n);
