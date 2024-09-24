@@ -2,16 +2,20 @@
 
 #include <stdio.h>
 
-void travesedArray(int arr[], int *n){
+void travesedArray(int arr[], int *n)
+{
     int i;
 
-    for(i = 0; i < *n; i++){
+    for (i = 0; i < *n; i++)
+    {
         printf("%d ", arr[i]);
     }
 }
 
-int insertAtEnd(int arr[], int *n, int element, int max) {
-    if(*n == max) {
+int insertAtEnd(int arr[], int *n, int element, int max)
+{
+    if (*n == max)
+    {
         printf("Array is overflow");
         return -1;
     }
@@ -21,16 +25,19 @@ int insertAtEnd(int arr[], int *n, int element, int max) {
     return 0;
 }
 
-int insertAtBegging(int arr[], int *n, int element, int max) {
+int insertAtBegging(int arr[], int *n, int element, int max)
+{
 
     int i;
 
-    if(*n == max) {
+    if (*n == max)
+    {
         printf("Array is overflow");
         return -1;
     }
 
-    for(i = *n; i >= 0; i --) {
+    for (i = *n; i >= 0; i--)
+    {
         arr[i + 1] = arr[i];
     }
 
@@ -40,16 +47,19 @@ int insertAtBegging(int arr[], int *n, int element, int max) {
     return 0;
 }
 
-int insertAtIndex(int arr[], int pos, int *n, int element, int max) {
-    
+int insertAtIndex(int arr[], int pos, int *n, int element, int max)
+{
+
     int i;
 
-    if(*n == max) {
+    if (*n == max)
+    {
         printf("Array is overflow");
         return -1;
     }
 
-    for(i = *n; i >= pos; i --) {
+    for (i = *n; i >= pos; i--)
+    {
         arr[i + 1] = arr[i];
     }
 
@@ -59,27 +69,30 @@ int insertAtIndex(int arr[], int pos, int *n, int element, int max) {
     return 0;
 }
 
-int deleteElementAtEnd(int arr[], int *n){
+int deleteElementAtEnd(int arr[], int *n)
+{
 
     (*n)--;
 
     return 0;
-
 }
 
-int deleteElementAtIndex(int arr[], int idx, int *n){
+int deleteElementAtIndex(int arr[], int idx, int *n)
+{
 
     int i;
 
-    for(i = idx; i < *n; i++) {
-        arr[i] = arr[i+1];
+    for (i = idx; i < *n; i++)
+    {
+        arr[i] = arr[i + 1];
     }
 
     (*n)--;
     return 0;
 }
 
-int main() {
+int main()
+{
     int arr[10] = {1, 2, 3, 4, 5};
     int element, idx, n = 5;
     int max = 10;
