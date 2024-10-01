@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "LLCWH.C": "cpp"
+    }
+}
