@@ -15,7 +15,7 @@ void linkedListTraversal(struct Node *ptr){
     
 }
 
-struct Node* insertAtBegging(struct Node *ptr, int data){
+struct Node* insertAtBeggining(struct Node *ptr, int data){
     struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
 
@@ -34,7 +34,7 @@ struct Node* insertAtIndex(struct Node *ptr, int data, int idx){
     newNode->data = data;
 
     if(idx == 0){
-        struct Node *head = insertAtBegging(ptr, data);
+        struct Node *head = insertAtBeggining(ptr, data);
         return head;
     }
 
@@ -55,16 +55,41 @@ struct Node* insertAtIndex(struct Node *ptr, int data, int idx){
     return ptr;
 }
 
+struct Node* insertAtEnd(struct Node* ptr, int data){
+    struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+
+    if(ptr == NULL){
+        newNode->next = NULL;
+        return newNode;
+    }
+
+    struct Node* temp = ptr;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    
+    temp->next = newNode;
+    newNode->next = NULL;
+
+    return ptr;
+
+}
+
 int main() {
 
     struct Node *head = NULL;
-    head = insertAtBegging(head, 10);
-    head = insertAtBegging(head, 20);
-    head = insertAtBegging(head, 30);
+    head = insertAtBeggining(head, 10);
+    head = insertAtBeggining(head, 20);
+    head = insertAtBeggining(head, 30);
     head = insertAtIndex(head, 20, 0);
     linkedListTraversal(head);
     head = insertAtIndex(head, 12, 2);
     head = insertAtIndex(head, 22, 4);
     head = insertAtIndex(head, 32, 3);
+    linkedListTraversal(head);
+    head = insertAtEnd(head, 10);
+    head = insertAtEnd(head, 20);
     linkedListTraversal(head);
 }
