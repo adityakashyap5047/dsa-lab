@@ -77,6 +77,27 @@ struct Node* insertAtEnd(struct Node* ptr, int data){
 
 }
 
+struct Node* insertAfterNode(struct Node*ptr, int data, int node){
+
+    if(ptr == NULL){
+        printf("Error! while inserting in the empty LinkedList");
+        return NULL;
+    }
+
+    struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+
+    struct Node * temp = ptr;
+    while (temp->data != node) 
+    {
+        temp = temp->next;
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+
+    return ptr;
+}
+
 int main() {
 
     struct Node *head = NULL;
@@ -91,5 +112,6 @@ int main() {
     linkedListTraversal(head);
     head = insertAtEnd(head, 10);
     head = insertAtEnd(head, 20);
+    head = insertAfterNode(head, 30, 20);
     linkedListTraversal(head);
 }
