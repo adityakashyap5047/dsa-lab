@@ -109,21 +109,48 @@ struct Node* deleteBeginingNode(struct Node* ptr){
     return ptr;
 }
 
+struct Node* deleteAtIdx(struct Node* ptr, int idx){
+    if(ptr == NULL){
+        printf("Error! while deleting the node from the empty LinkedList");
+        return NULL;
+    }
+    if (idx == 0)   
+    {
+        return deleteBeginingNode(ptr);
+    }
+    
+    struct Node* temp = ptr;
+
+    int i = 0;
+    while (i != idx - 1)
+    {
+        temp = temp->next;
+        i++;
+    }
+    struct Node* tempNode = temp->next;
+    temp->next = tempNode->next;
+    free(tempNode);
+
+    return ptr;
+}
+
 int main() {
 
     struct Node *head = NULL;
-    head = insertAtBeggining(head, 10);
-    head = insertAtBeggining(head, 20);
-    head = insertAtBeggining(head, 30);
+    // head = insertAtBeggining(head, 10);
+    // head = insertAtBeggining(head, 20);
+    // head = insertAtBeggining(head, 30);
     // head = insertAtIndex(head, 20, 0);
     // linkedListTraversal(head);
     // head = insertAtIndex(head, 12, 2);
     // head = insertAtIndex(head, 22, 4);
     // head = insertAtIndex(head, 32, 3);
     // linkedListTraversal(head);
-    // head = insertAtEnd(head, 10);
-    // head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 10);
+    head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 30);
     // head = insertAfterNode(head, 30, 20);
-    head = deleteBeginingNode(head);
+    // head = deleteBeginingNode(head);
+    // head = deleteAtIdx(head, 1);
     linkedListTraversal(head);
 }
