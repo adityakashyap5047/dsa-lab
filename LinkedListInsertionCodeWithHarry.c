@@ -98,20 +98,32 @@ struct Node* insertAfterNode(struct Node*ptr, int data, int node){
     return ptr;
 }
 
+struct Node* deleteBeginingNode(struct Node* ptr){
+    if(ptr == NULL){
+        printf("Error! while inserting in the empty LinkedList");
+        return NULL;
+    }
+    struct Node* temp = ptr;
+    ptr = ptr->next;
+    free(temp);
+    return ptr;
+}
+
 int main() {
 
     struct Node *head = NULL;
     head = insertAtBeggining(head, 10);
     head = insertAtBeggining(head, 20);
     head = insertAtBeggining(head, 30);
-    head = insertAtIndex(head, 20, 0);
-    linkedListTraversal(head);
-    head = insertAtIndex(head, 12, 2);
-    head = insertAtIndex(head, 22, 4);
-    head = insertAtIndex(head, 32, 3);
-    linkedListTraversal(head);
-    head = insertAtEnd(head, 10);
-    head = insertAtEnd(head, 20);
-    head = insertAfterNode(head, 30, 20);
+    // head = insertAtIndex(head, 20, 0);
+    // linkedListTraversal(head);
+    // head = insertAtIndex(head, 12, 2);
+    // head = insertAtIndex(head, 22, 4);
+    // head = insertAtIndex(head, 32, 3);
+    // linkedListTraversal(head);
+    // head = insertAtEnd(head, 10);
+    // head = insertAtEnd(head, 20);
+    // head = insertAfterNode(head, 30, 20);
+    head = deleteBeginingNode(head);
     linkedListTraversal(head);
 }
