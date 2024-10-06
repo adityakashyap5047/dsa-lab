@@ -100,7 +100,7 @@ struct Node* insertAfterNode(struct Node*ptr, int data, int node){
 
 struct Node* deleteBeginingNode(struct Node* ptr){
     if(ptr == NULL){
-        printf("Error! while inserting in the empty LinkedList");
+        printf("Error! while deleting the node from the empty LinkedList");
         return NULL;
     }
     struct Node* temp = ptr;
