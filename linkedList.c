@@ -99,6 +99,62 @@ struct Node* insertAfterNode(struct Node* ptr, int data, int node) {
     return ptr;
 }
 
+struct Node* deleteBeginingNode(struct Node* ptr){
+    if(ptr == NULL){
+        printf("Error! while deleting the node from the empty LinkedList");
+        return NULL;
+    }
+    struct Node* temp = ptr;
+    ptr = ptr->next;
+    free(temp);
+    return ptr;
+}
+
+struct Node* deleteAtIdx(struct Node* ptr, int idx){
+    if(ptr == NULL){
+        printf("Error! while deleting the node from the empty LinkedList");
+        return NULL;
+    }
+    if (idx == 0)   
+    {
+        return deleteBeginingNode(ptr);
+    }
+    
+    struct Node* temp = ptr;
+
+    int i = 0;
+    while (i != idx - 1)
+    {
+        temp = temp->next;
+        i++;
+    }
+    struct Node* tempNode = temp->next;
+    temp->next = tempNode->next;
+    free(tempNode);
+
+    return ptr;
+}
+
+struct Node* deleteEndNode(struct Node *ptr){
+    if(ptr == NULL){
+        printf("Error! while deleting the node from the empty LinkedList");
+        return NULL;
+    }
+    struct Node* temp = ptr;
+    struct Node* last = ptr->next;
+
+    while (last->next != NULL)
+    {
+        last = last->next;
+        temp = temp->next;
+    }
+    
+    temp->next = NULL;
+    free(last);
+    return ptr;
+}
+
+
 int main() {
     struct Node* head = NULL;
     head = insertAtBeginning(head, 10);
