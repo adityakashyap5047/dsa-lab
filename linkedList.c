@@ -18,7 +18,7 @@ void linkedListTraversal(struct Node* ptr) {
     }
 }
 
-struct Node* insertAtBeginning(struct Node* ptr, int data) {
+struct Node* insertAtBeggining(struct Node* ptr, int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
 
@@ -28,7 +28,7 @@ struct Node* insertAtBeginning(struct Node* ptr, int data) {
 
 struct Node* insertAtIdx(struct Node* ptr, int data, int idx) {
     if (idx == 0) {
-        return insertAtBeginning(ptr, data);
+        return insertAtBeggining(ptr, data);
     }
     if (ptr == NULL) {
         printf("Can't insert at any index of the empty linked list\n");
@@ -58,7 +58,7 @@ struct Node* insertAtIdx(struct Node* ptr, int data, int idx) {
 
 struct Node* insertAtEnd(struct Node* ptr, int data) {
     if (ptr == NULL) {
-        return insertAtBeginning(ptr, data);
+        return insertAtBeggining(ptr, data);
     }
 
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -157,14 +157,49 @@ struct Node* deleteEndNode(struct Node *ptr){
 
 int main() {
     struct Node* head = NULL;
-    head = insertAtBeginning(head, 10);
-    head = insertAtBeginning(head, 20);
-    head = insertAtIdx(head, 12, 0);
-    head = insertAtIdx(head, 22, 1);
-    head = insertAtEnd(head, 45);
-    head = insertAfterNode(head, 34, 12);
-    head = insertAfterNode(head, 34, 400);
+    printf("Inserting at beggining");
+    head = insertAtBeggining(head, 10);
     linkedListTraversal(head);
+    printf("Inserting at beggining");
+    head = insertAtBeggining(head, 20);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("insert at index 0");
+    head = insertAtIdx(head, 12, 0);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("insert at index 1");
+    head = insertAtIdx(head, 22, 1);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("insert at end");
+    head = insertAtEnd(head, 45);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("insert after node");
+    head = insertAfterNode(head, 34, 12);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("deleting from beggining");
+    head = deleteBeginingNode(head);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("delete from index 2");
+    head = deleteAtIdx(head, 2);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
+    printf("delete from end");
+    head = deleteEndNode(head);
+    printf("\n");
+    linkedListTraversal(head);
+    printf("\n");
 
     return 0;
 }
