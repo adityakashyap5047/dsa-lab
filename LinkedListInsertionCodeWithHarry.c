@@ -134,6 +134,25 @@ struct Node* deleteAtIdx(struct Node* ptr, int idx){
     return ptr;
 }
 
+struct Node* deleteEndNode(struct Node *ptr){
+    if(ptr == NULL){
+        printf("Error! while deleting the node from the empty LinkedList");
+        return NULL;
+    }
+    struct Node* temp = ptr;
+    struct Node* last = ptr->next;
+
+    while (last->next != NULL)
+    {
+        last = last->next;
+        temp = temp->next;
+    }
+    
+    temp->next = NULL;
+    free(last);
+    return ptr;
+}
+
 int main() {
 
     struct Node *head = NULL;
@@ -149,6 +168,7 @@ int main() {
     head = insertAtEnd(head, 10);
     head = insertAtEnd(head, 20);
     head = insertAtEnd(head, 30);
+    head = deleteEndNode(head);
     // head = insertAfterNode(head, 30, 20);
     // head = deleteBeginingNode(head);
     // head = deleteAtIdx(head, 1);
